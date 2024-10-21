@@ -29,6 +29,7 @@ public class Room {
         if (checkAvailability()) { 
             isOccupied = true; 
             System.out.println(mahasiswa.getNama() + " telah didaftarkan ke kamar " + noKamar);
+            assignedStudent = mahasiswa;
         } else {
             System.out.println("Kamar " + noKamar + " sudah terisi.");
     }

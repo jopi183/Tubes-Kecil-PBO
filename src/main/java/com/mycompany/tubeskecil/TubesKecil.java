@@ -68,6 +68,14 @@ public class TubesKecil {
                 String NIM = scanner.nextLine();
                 Mahasiswa mahasiswaBaru = new Mahasiswa(nama, umur, jenisKelamin, NIM);
                 asrama.addStudent(mahasiswaBaru);
+                System.out.println("Apakah mahasiswa adalah Senior Residents?");
+                String SR = scanner.nextLine();
+                if (SR.equals("Ya")){
+                    System.out.println("Masukkan nama group mentoring: ");
+                    String groupMentoring = scanner.nextLine();
+                    SeniorResidents newSR = new SeniorResidents(mahasiswaBaru.getNama(),mahasiswaBaru.getUmur(), mahasiswaBaru.getJenisKelamin(), mahasiswaBaru.getNIM(),asrama.getDormName(),groupMentoring);
+                    asrama.addSeniorResidents(newSR);
+                }
                 break;
             case 4:
                 System.out.print("Masukkan NIM mahasiswa: ");
@@ -78,17 +86,7 @@ public class TubesKecil {
                 Room roomDaftar = asrama.findRoomByNumber(nomorKamarDaftar);
                 if (mahasiswaDaftar != null && roomDaftar != null) {
                     mahasiswaDaftar.registerRoom(roomDaftar);
-                    if (!roomDaftar.checkAvailability()){
-                        System.out.println("Apakah mahasiswa adalah Senior Residents?");
-                        String SR = scanner.nextLine();
-                        if (SR.equals("Ya")){
-                            System.out.println("Masukkan nama group mentoring: ");
-                            String groupMentoring = scanner.nextLine();
-                            SeniorResidents newSR = new SeniorResidents(mahasiswaDaftar.getNama(),mahasiswaDaftar.getUmur(), mahasiswaDaftar.getJenisKelamin(), mahasiswaDaftar.getNIM(),asrama.getDormName(),nomorKamarDaftar,groupMentoring);
-                            asrama.addSeniorResidents(newSR);
-                        }
-                    }
-                } else {
+                }else{
                     System.out.println("Mahasiswa atau kamar tidak ditemukan.");
                 }
                 

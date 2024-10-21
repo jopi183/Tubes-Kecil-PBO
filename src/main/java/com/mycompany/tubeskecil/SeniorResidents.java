@@ -15,7 +15,7 @@ import java.util.List;
 public class SeniorResidents extends Mahasiswa {
     private String mentorshipGroup;
     private List<LocalDate> jadwalMentoring;
-    public SeniorResidents(String nama, int umur, String jenisKelamin, String NIM, String dormName, String noKamar, String mentorshipGroup){
+    public SeniorResidents(String nama, int umur, String jenisKelamin, String NIM, String dormName, String mentorshipGroup){
         super(nama, umur, jenisKelamin,NIM);
         this.mentorshipGroup = mentorshipGroup;
         this.jadwalMentoring = new ArrayList<>(); 
